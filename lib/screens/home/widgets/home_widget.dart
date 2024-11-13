@@ -11,7 +11,7 @@ class HomeWidget extends StatelessWidget {
       'title': 'Love your mine',
       'icon': Icons.person,
       'username': '@SamuelLpz',
-      'friendsCount': '+ 4 New Friends',
+      'friendsCount': '4',
       'caption': '#lovetoyou #foryourpage #beautiful'
     },
     // Add more items as needed
@@ -19,7 +19,7 @@ class HomeWidget extends StatelessWidget {
       'title': 'Another Post',
       'icon': Icons.favorite,
       'username': '@JaneDoe',
-      'friendsCount': '+ 10 New Friends',
+      'friendsCount': '10',
       'caption': '#flutter #dart #programming'
     },
     // Add more items as needed
@@ -28,7 +28,7 @@ class HomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(8),
       itemCount: items.length,
       itemBuilder: (context, index) {
         final item = items[index];
@@ -41,7 +41,7 @@ class HomeWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(18),
               child: Stack(
                 children: [
                   // Background image layer
@@ -86,13 +86,13 @@ class HomeWidget extends StatelessWidget {
                             // Combined container with blurred background
                             ClipRRect(
                               borderRadius:
-                                  BorderRadius.circular(22), // Adjust as needed
+                                  BorderRadius.circular(28), // Adjust as needed
                               child: BackdropFilter(
                                 filter:
                                     ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
-                                      vertical: 8, horizontal: 14),
+                                      vertical: 8, horizontal: 12),
                                   color: Colors.black.withOpacity(
                                       0.2), // Low opacity for background
                                   child: Row(
@@ -119,7 +119,7 @@ class HomeWidget extends StatelessWidget {
                                             ),
                                           ),
                                           Text(
-                                            '${item['friendsCount']} friends', // Assuming friendsCount is a number
+                                            '+ ${item['friendsCount']} New friends', // Assuming friendsCount is a number
                                             style: const TextStyle(
                                               color: Colors.white70,
                                               fontSize: 10,

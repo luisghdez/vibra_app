@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/navigation_provider.dart';
@@ -75,46 +76,70 @@ class BottomNavbar extends StatelessWidget {
     int currentIndex =
         _mapProviderIndexToBottomNav(navigationProvider.currentIndex);
 
-    return BottomNavigationBar(
-      currentIndex: currentIndex,
-      onTap: (index) {
-        if (index == 2) {
-          // 'Add' button tapped
-          _showAddOptions(context);
-        } else {
-          final newIndex = _mapBottomNavToProviderIndex(index);
-          if (newIndex != null) {
-            navigationProvider.updateIndex(newIndex);
-          }
-        }
-      },
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home, size: 36),
-          label: '',
+    return Padding(
+      padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+      // Adjust bottom padding to 8.0 to reduce overflow risk
+      child: SafeArea(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(28),
+          // Ensures the blur doesn't affect other parts
+          child: BackdropFilter(
+            filter: ImageFilter.blur(
+                sigmaX: 10.0, sigmaY: 10.0), // Adjust blur intensity
+            child: Container(
+              height: 70,
+              color: Colors.black.withOpacity(0.55),
+              child: BottomNavigationBar(
+                showSelectedLabels: false,
+                showUnselectedLabels: false,
+                backgroundColor:
+                    Colors.transparent, // Make BottomNavigationBar transparent
+                elevation: 0, // Remove shadow
+                currentIndex: currentIndex,
+                onTap: (index) {
+                  if (index == 2) {
+                    // 'Add' button tapped
+                    _showAddOptions(context);
+                  } else {
+                    final newIndex = _mapBottomNavToProviderIndex(index);
+                    if (newIndex != null) {
+                      navigationProvider.updateIndex(newIndex);
+                    }
+                  }
+                },
+                items: const [
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.home,
+                        size: 30), // Reduced icon size slightly
+                    label: '',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.search, size: 30),
+                    label: '',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.add,
+                        size: 36), // Keep 'Add' icon slightly larger
+                    label: '',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.message_rounded, size: 28),
+                    label: '',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.person, size: 30),
+                    label: '',
+                  ),
+                ],
+                selectedItemColor: Colors.white,
+                unselectedItemColor: const Color.fromARGB(255, 124, 124, 124),
+                type: BottomNavigationBarType.fixed,
+                enableFeedback: false, // Disable the regular tap animation
+              ),
+            ),
+          ),
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.search, size: 36),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.add, size: 44),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.message_rounded, size: 30),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person, size: 36),
-          label: '',
-        ),
-      ],
-      selectedItemColor: Colors.white,
-      unselectedItemColor: const Color.fromARGB(255, 109, 109, 109),
-      showUnselectedLabels: true,
-      type: BottomNavigationBarType.fixed,
-      enableFeedback: false, // Disable the regular tap animation
+      ),
     );
   }
 }
