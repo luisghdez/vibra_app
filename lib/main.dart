@@ -1,6 +1,7 @@
 // lib/main.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:vibra_app/screens/messaging/messaging_screen.dart';
 import 'providers/navigation_provider.dart';
 import 'screens/home/home_screen.dart';
 import 'screens/search/search_screen.dart';
@@ -42,6 +43,7 @@ class MainScreen extends StatelessWidget {
         children: const [
           HomeScreen(),
           SearchScreen(),
+          MessagingScreen(),
           ProfileScreen(),
         ],
       ),
