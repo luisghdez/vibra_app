@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'components/home_header.dart';
-import 'widgets/home_widget.dart';
+import 'package:vibra_app/screens/home/components/feed_component.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -36,7 +35,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           // HomeHeader(),
           Expanded(
-            child: HomeWidget(),
+            child: FeedComponent(),
           ),
         ],
       ),

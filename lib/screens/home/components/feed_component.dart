@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class HomeWidget extends StatelessWidget {
-  const HomeWidget({Key? key}) : super(key: key);
+class FeedComponent extends StatelessWidget {
+  const FeedComponent({Key? key}) : super(key: key);
 
   // Example list of items
   final List<Map<String, dynamic>> items = const [
