@@ -1,16 +1,50 @@
-# vibra_app
+# Vibra
 
-A new Flutter project.
+Welcome to **Vibra**! This is a Flutter-based application. Follow these instructions to set up the project on your local machine.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+- Make sure you have [Flutter](https://flutter.dev/docs/get-started/install) installed on your machine.
+- Ensure that Git is installed. If not, you can download it from [Git's website](https://git-scm.com/downloads).
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Setup Instructions
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. **Clone the Repository**
+
+   Clone the repository from GitHub to your local machine using the following command:
+
+   ```bash
+   git clone git@github.com:luisghdez/vibra_app.git
+
+2. **Install Dependencies**
+   ```bash
+   flutter pub get
+
+3. ***Run the Project***
+   ```bash
+    flutter run
+
+## Project Structure
+   ```bash
+    lib
+    ├── models                    # Data models for the app
+    ├── providers                 # State management files
+    ├── screens                   # Screens of the app, each screen has its own folder
+    │   ├── screen_name           # Folder for a specific screen
+    │   │   ├── components        # Screen-specific components for this screen, made up of widgets
+    │   │   ├── widgets           # Screen-specific widgets for this screen
+    │   │   └── screen_name.dart  # Main file for the screen
+    │   └── another_screen
+    │       ├── components
+    │       ├── widgets
+    │       └── another_screen.dart
+    ├── utils                     # Utility functions and helper classes
+    ├── widgets                   # General-purpose widgets for the app
+    └── main.dart                 # Entry point of the Flutter application
+
+
+
+
+
