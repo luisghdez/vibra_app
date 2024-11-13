@@ -90,30 +90,31 @@ class BottomNavbar extends StatelessWidget {
       },
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: Constants.home,
+          icon: Icon(Icons.home, size: 36),
+          label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search),
-          label: Constants.search,
+          icon: Icon(Icons.search, size: 36),
+          label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add_circle, size: 36), // Larger icon for 'Add'
-          label: '', // No label for 'Add'
+          icon: Icon(Icons.add, size: 44),
+          label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.message),
-          label: Constants.messaging,
+          icon: Icon(Icons.message_rounded, size: 30),
+          label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: Constants.profile,
+          icon: Icon(Icons.person, size: 36),
+          label: '',
         ),
       ],
-      selectedItemColor: Constants.primaryColor,
-      unselectedItemColor: Colors.grey,
+      selectedItemColor: Colors.white,
+      unselectedItemColor: const Color.fromARGB(255, 109, 109, 109),
       showUnselectedLabels: true,
       type: BottomNavigationBarType.fixed,
+      enableFeedback: false, // Disable the regular tap animation
     );
   }
 }

@@ -21,10 +21,8 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => NavigationProvider(),
       child: MaterialApp(
-        title: 'Clean Navbar App',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        title: 'Vibra',
+        theme: ThemeData.dark(),
         home: const MainScreen(),
       ),
     );
