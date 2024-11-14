@@ -7,21 +7,99 @@ class FeedComponent extends StatelessWidget {
   const FeedComponent({Key? key}) : super(key: key);
 
   // Example list of items
+
   final List<Map<String, dynamic>> items = const [
     {
-      'title': 'Love your mine',
-      'icon': Icons.person,
+      'title': 'Love Your Mine',
+      'icon': 'person', // Using string to represent icon names
       'username': '@SamuelLpz',
       'friendsCount': '4',
-      'caption': '#lovetoyou #foryourpage #beautiful'
+      'caption': '#lovetoyou #foryourpage #beautiful',
+      'participants': [
+        {
+          'name': 'John',
+          'age': 28,
+          'hobbies': 'Hiking, Baking, Photography',
+          'imagePath': 'assets/john_doe.jpg',
+        },
+        {
+          'name': 'Jane',
+          'age': 25,
+          'hobbies': 'Reading, Traveling, Painting',
+          'imagePath': 'assets/jane_smith.jpg',
+        },
+        {
+          'name': 'Alice',
+          'age': 30,
+          'hobbies': 'Coding, Running, Cooking',
+          'imagePath': 'assets/alice_johnson.jpg',
+        },
+        {
+          'name': 'Bob',
+          'age': 27,
+          'hobbies': 'Gaming, Music, Traveling',
+          'imagePath': 'assets/bob_brown.jpg',
+        }
+        // Add more participants as needed
+      ],
+      'comments': [
+        {
+          'name': 'Dylan',
+          'text': 'Best event of the year!',
+          'likes': 3,
+          'imagePath': 'assets/dylan.jpg',
+        },
+        {
+          'name': 'Sofia',
+          'text': 'Had so much fun. Can\'t wait for next year.',
+          'likes': 4,
+          'imagePath': 'assets/sofia.jpg',
+        },
+        {
+          'name': 'Jack',
+          'text': 'Good vibes, great music.',
+          'likes': 5,
+          'imagePath': 'assets/jack.jpg',
+        },
+        // Add more comments as needed
+      ],
     },
-    // Add more items as needed
     {
       'title': 'Another Post',
-      'icon': Icons.favorite,
+      'icon': 'favorite',
       'username': '@JaneDoe',
       'friendsCount': '10',
-      'caption': '#flutter #dart #programming'
+      'caption': '#flutter #dart #programming',
+      'participants': [
+        {
+          'name': 'Alice',
+          'age': 30,
+          'hobbies': 'Coding, Running, Cooking',
+          'imagePath': 'assets/alice_johnson.jpg',
+        },
+        {
+          'name': 'Bob',
+          'age': 27,
+          'hobbies': 'Gaming, Music, Traveling',
+          'imagePath': 'assets/bob_brown.jpg',
+        },
+        // Add more participants as needed
+      ],
+      'comments': [
+        {
+          'name': 'Michael',
+          'text': 'Amazing content!',
+          'likes': 2,
+          'imagePath': 'assets/michael.jpg',
+        },
+        {
+          'name': 'Emma',
+          'text': 'Very informative, thanks for sharing.',
+          'likes': 5,
+          'imagePath': 'assets/emma.jpg',
+        },
+        // Add more comments as needed
+      ],
     },
     // Add more items as needed
   ];
