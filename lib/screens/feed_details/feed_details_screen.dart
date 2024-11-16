@@ -263,11 +263,7 @@ class CommentsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Comments',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 16),
         ...comments.map((comment) => CommentWidget(comment: comment)).toList(),
       ],
     );
@@ -283,35 +279,66 @@ class CommentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
-      child: Row(
+      padding: const EdgeInsets.only(
+          bottom: 16), // Increased top padding for more space
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CircleAvatar(
-            radius: 20,
-            backgroundColor: Colors.grey,
-            backgroundImage: AssetImage(
-                'assets/avatar7.png'), // Replace with commenter's image
+          // Top Row: Profile Picture and Name with Time Ago
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // Profile Picture
+              CircleAvatar(
+                radius: 18,
+                backgroundColor: Colors.grey[300],
+                backgroundImage: comment['profileImage'] != null
+                    ? AssetImage(comment['profileImage'])
+                    : null,
+                child: comment['profileImage'] == null
+                    ? const Icon(Icons.person, color: Colors.white)
+                    : null,
+              ),
+              const SizedBox(width: 12),
+              // Name and Time Ago Column
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    comment['name'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
+                  ),
+                  Text(
+                    '3d',
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  comment['name'],
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-                Text(comment['text']),
-                Row(
-                  children: [
-                    const Icon(Icons.thumb_up, size: 16),
-                    const SizedBox(width: 4),
-                    Text(comment['likes'].toString()),
-                  ],
-                ),
-              ],
-            ),
+          const SizedBox(height: 8),
+          // Comment Text
+          Text(
+            comment['text'],
+            style: const TextStyle(fontSize: 14),
+          ),
+          const SizedBox(height: 8),
+          // Likes Row
+          Row(
+            children: [
+              Icon(Icons.thumb_up_outlined, size: 16, color: Colors.grey[600]),
+              const SizedBox(width: 4),
+              Text(
+                comment['likes'].toString(),
+                style: TextStyle(color: Colors.grey[600], fontSize: 12),
+              ),
+            ],
           ),
         ],
       ),
@@ -325,23 +352,33 @@ class AddCommentSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Expanded(
-          child: TextField(
-            decoration: InputDecoration(
-              hintText: 'Add a comment',
-              border: OutlineInputBorder(),
+    return Container(
+      // Add padding around the Row for better spacing
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30.0), // Fully rounded corners
+      ),
+      child: Row(
+        children: [
+          const Expanded(
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Add a comment',
+                border: InputBorder.none,
+              ),
             ),
           ),
-        ),
-        IconButton(
-          icon: const Icon(Icons.send),
-          onPressed: () {
-            // Implement send functionality
-          },
-        ),
-      ],
+          // Send IconButton
+          IconButton(
+            icon: const Icon(Icons.send_outlined),
+            color: Colors.white,
+            onPressed: () {
+              // Implement send functionality here
+              // For example, you might want to capture the text and clear the field
+            },
+          ),
+        ],
+      ),
     );
   }
 }
