@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:vibra_app/models/for_you_item.dart';
 import 'dart:ui';
 import 'components/search_bar.dart' as custom;
 
 // Sample data for demonstration
-final List<String> forYouItems =
-    List.generate(20, (index) => 'For You Item ${index + 1}');
+final List<ForYouItem> forYouItems = List.generate(
+  20,
+  (index) => ForYouItem(
+    imageUrl: 'assets/feed.png', // Path to your asset image
+    title: 'New Year Celebration ${index + 1}',
+    creator: 'User ${index + 1}',
+    friendsCount: 4 + index, // Example friends count
+    date: 'Thu, Dec 28',
+    time: '2:00 PM',
+    location: 'The Bar ${index + 1}',
+  ),
+);
 final List<String> friendsItems =
     List.generate(20, (index) => 'Friend Item ${index + 1}');
 final Map<String, List<String>> categories = {
@@ -82,14 +93,61 @@ class SearchScreen extends StatelessWidget {
       itemCount: forYouItems.length,
       itemBuilder: (context, index) {
         return Card(
-          color: Colors.white.withOpacity(0.8), // Semi-transparent card
           margin: const EdgeInsets.symmetric(vertical: 8.0),
-          child: ListTile(
-            title: Text(
-              forYouItems[index],
-              style: const TextStyle(
-                  color: Colors.black), // Black text for readability
-            ),
+          child: Row(
+            children: [
+              // Left-side image
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Image.asset(
+                  forYouItems[index].imageUrl,
+                  width: 130,
+                  height: 130,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(width: 16.0), // Spacing between image and text
+              // Right-side text content
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      forYouItems[index].title,
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 8.0),
+                    Text(
+                      '${forYouItems[index].creator} and ${forYouItems[index].friendsCount} friends',
+                      style: const TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    const SizedBox(height: 2.0),
+                    Text(
+                      '${forYouItems[index].date}, ${forYouItems[index].time}',
+                      style: const TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    const SizedBox(height: 2.0),
+                    Text(
+                      forYouItems[index].location,
+                      style: const TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         );
       },
@@ -100,21 +158,69 @@ class SearchScreen extends StatelessWidget {
   Widget _buildFriendsTab() {
     return ListView.builder(
       padding: const EdgeInsets.only(
-        top: 120.0, // Adjusted padding
+        top: 120.0, // Adjusted padding to account for AppBar and TabBar
         left: 16.0,
         right: 16.0,
         bottom: 16.0,
       ),
-      itemCount: friendsItems.length,
+      itemCount: forYouItems.length,
       itemBuilder: (context, index) {
         return Card(
-          color: Colors.white.withOpacity(0.8),
           margin: const EdgeInsets.symmetric(vertical: 8.0),
-          child: ListTile(
-            title: Text(
-              friendsItems[index],
-              style: const TextStyle(color: Colors.black),
-            ),
+          child: Row(
+            children: [
+              // Left-side image
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Image.asset(
+                  forYouItems[index].imageUrl,
+                  width: 130,
+                  height: 130,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(width: 16.0), // Spacing between image and text
+              // Right-side text content
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      forYouItems[index].title,
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 8.0),
+                    Text(
+                      '${forYouItems[index].creator} and ${forYouItems[index].friendsCount} friends',
+                      style: const TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    const SizedBox(height: 2.0),
+                    Text(
+                      '${forYouItems[index].date}, ${forYouItems[index].time}',
+                      style: const TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    const SizedBox(height: 2.0),
+                    Text(
+                      forYouItems[index].location,
+                      style: const TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         );
       },
