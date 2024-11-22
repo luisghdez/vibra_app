@@ -47,7 +47,7 @@ class _CustomTabIndicatorPainter extends BoxPainter {
 
     // Define the dimensions of the indicator
     final double indicatorWidth = tabWidth + (2 * horizontalPadding);
-    final double indicatorHeight = tabHeight; // Adjust as needed
+    final double indicatorHeight = tabHeight * 0.65; // Adjust as needed
 
     // Calculate the position to center the indicator vertically and extend horizontally
     final Offset indicatorOffset = Offset(
@@ -217,31 +217,27 @@ class SearchScreen extends StatelessWidget {
                   filter: ImageFilter.blur(
                       sigmaX: 10.0, sigmaY: 10.0), // Apply blur effect
                   child: Container(
-                    height: 54.0, // Height of the TabBar
+                    height: 58.0, // Height of the TabBar
                     decoration: BoxDecoration(
-                      color: Colors.white
-                          .withOpacity(0.2), // Semi-transparent background
+                      color: Colors.black
+                          .withOpacity(0.55), // Semi-transparent background
                       borderRadius:
                           BorderRadius.circular(30.0), // Rounded corners
-                      // border: Border.all(
-                      //   color: Colors.white
-                      //       .withOpacity(0.3), // Border color with opacity
-                      //   width: 1.0, // Border width
-                      // ),
                     ),
                     child: TabBar(
-                      labelColor: Colors.white, // Active tab label color
-                      unselectedLabelColor:
-                          Colors.grey[300], // Inactive tab label color
+                      labelColor: Colors.black, // Active tab label color
+                      unselectedLabelColor: Colors.grey[300],
                       indicator: CustomTabIndicator(
                         color: Colors.white
-                            .withOpacity(0.3), // Indicator color with opacity
+                            .withOpacity(0.9), // Indicator color with opacity
                         radius: 30.0, // Rounded corners
                         horizontalPadding:
                             0.0, // Extend indicator by 10.0 on each side
                       ),
                       dividerColor: Colors.transparent, // Hide tab divider
                       indicatorSize: TabBarIndicatorSize.tab,
+                      indicatorPadding:
+                          const EdgeInsets.symmetric(horizontal: 15.0),
                       tabs: const [
                         Tab(text: 'For You'),
                         Tab(text: 'Friends'),
