@@ -21,6 +21,8 @@ class SearchScreen extends StatelessWidget {
   // Widget for "For You" tab
   Widget _buildForYouTab() {
     return ListView.builder(
+      padding:
+          const EdgeInsets.only(top: kToolbarHeight + 48.0), // Adjust padding
       itemCount: forYouItems.length,
       itemBuilder: (context, index) {
         return ListTile(
@@ -33,6 +35,8 @@ class SearchScreen extends StatelessWidget {
   // Widget for "Friends" tab
   Widget _buildFriendsTab() {
     return ListView.builder(
+      padding:
+          const EdgeInsets.only(top: kToolbarHeight + 48.0), // Adjust padding
       itemCount: friendsItems.length,
       itemBuilder: (context, index) {
         return ListTile(
@@ -45,6 +49,8 @@ class SearchScreen extends StatelessWidget {
   // Widget for "Categories" tab
   Widget _buildCategoriesTab(BuildContext context) {
     return ListView.builder(
+      padding:
+          const EdgeInsets.only(top: kToolbarHeight + 48.0), // Adjust padding
       itemCount: categories.keys.length,
       itemBuilder: (context, index) {
         String category = categories.keys.elementAt(index);
@@ -59,6 +65,11 @@ class SearchScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
                   category,
+                  style: const TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white, // Ensure visibility against background
+                  ),
                 ),
               ),
               SizedBox(
@@ -78,7 +89,8 @@ class SearchScreen extends StatelessWidget {
                         width: 150.0, // Adjust width as needed
                         margin: const EdgeInsets.symmetric(horizontal: 8.0),
                         decoration: BoxDecoration(
-                          color: Colors.blueAccent,
+                          color: Colors.blueAccent
+                              .withOpacity(0.7), // Semi-transparent
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Center(
@@ -107,35 +119,32 @@ class SearchScreen extends StatelessWidget {
     return DefaultTabController(
       length: 3, // Number of tabs
       child: Scaffold(
-        extendBody: true,
+        extendBodyBehindAppBar: true, // Extend body behind AppBar
         appBar: AppBar(
+          backgroundColor: Colors.transparent, // Make AppBar transparent
+          elevation: 0, // Remove AppBar shadow
           title: TabBar(
-            labelColor: Theme.of(context).primaryColor,
-            unselectedLabelColor: Colors.grey,
-            indicatorColor: Theme.of(context).primaryColor,
-            // indicator: BoxDecoration(
-            //   color: Colors.white, // Background color for selected tab
-            //   borderRadius: BorderRadius.circular(20.0), // Rounded corners
-            // ),
+            labelColor: Colors.white, // Ensure visibility against background
+            unselectedLabelColor: Colors.grey[300],
+            indicatorColor: Colors.white,
             tabs: const [
               Tab(text: 'For You'),
               Tab(text: 'Friends'),
               Tab(text: 'Categories'),
             ],
           ),
+          // Optionally, add a bottom property for additional widgets like a search bar
         ),
-        body: Column(
+        body: Stack(
           children: [
-            Expanded(
-              child: TabBarView(
-                children: [
-                  _buildForYouTab(),
-                  _buildFriendsTab(),
-                  Builder(
-                    builder: (context) => _buildCategoriesTab(context),
-                  ),
-                ],
-              ),
+            TabBarView(
+              children: [
+                _buildForYouTab(),
+                _buildFriendsTab(),
+                Builder(
+                  builder: (context) => _buildCategoriesTab(context),
+                ),
+              ],
             ),
           ],
         ),
