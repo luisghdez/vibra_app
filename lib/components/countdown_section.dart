@@ -5,29 +5,64 @@ class CountdownSection extends StatelessWidget {
 
   const CountdownSection({Key? key, required this.duration}) : super(key: key);
 
-  String _formatDuration(Duration duration) {
+  List<String> _getTimeComponents(Duration duration) {
     String twoDigits(int n) => n.toString().padLeft(2, '0');
-    String days = duration.inDays > 0 ? '${duration.inDays}d ' : '';
+    String days = duration.inDays.toString();
     String hours = twoDigits(duration.inHours.remainder(24));
     String minutes = twoDigits(duration.inMinutes.remainder(60));
     String seconds = twoDigits(duration.inSeconds.remainder(60));
-    return '$days$hours:$minutes:$seconds';
+    return [days, hours, minutes, seconds];
   }
 
   @override
   Widget build(BuildContext context) {
+    final timeComponents = _getTimeComponents(duration);
+    final labels = ['Days', 'Hours', 'Minutes', 'Seconds'];
+
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Text(
-          'Event Starts In:',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        Row(
+          children: [
+            for (int index = 0; index < 4; index++) ...[
+              Expanded(
+                child: Column(
+                  children: [
+                    Container(
+                      height: 60,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[900],
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Text(
+                        timeComponents[index],
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      labels[index],
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              if (index < 3)
+                const SizedBox(
+                    width:
+                        12), // Add 10px space between containers except after the last one
+            ],
+          ],
         ),
-        const SizedBox(height: 8),
-        Text(
-          _formatDuration(duration),
-          style: const TextStyle(fontSize: 24, color: Colors.white),
-        ),
+        // ),
       ],
     );
   }
