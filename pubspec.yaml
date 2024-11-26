@@ -66,6 +66,11 @@ flutter:
   assets:
     - assets/avatar7.png
     - assets/feed.png
+    - assets/categories/running.png
+    - assets/categories/runningpng.png
+    - assets/categories/hiking.png
+    - assets/categories/fitness.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
