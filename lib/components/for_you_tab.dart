@@ -11,7 +11,7 @@ class ForYouTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: const EdgeInsets.only(
-        top: 120.0, // Adjusted padding to account for AppBar and TabBar
+        top: 130.0, // Adjusted padding to account for AppBar and TabBar
         left: 16.0,
         right: 16.0,
         bottom: 16.0,

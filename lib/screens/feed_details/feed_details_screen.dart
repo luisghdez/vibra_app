@@ -155,7 +155,7 @@ class ParticipantsSection extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Container(
-          height: 250, // Adjusted height for vertical cards
+          height: 300, // Adjusted height for vertical cards
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: participants.length,
@@ -181,7 +181,7 @@ class ParticipantCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 160,
+      width: 200,
       margin: const EdgeInsets.only(right: 16),
       child: Stack(
         children: [

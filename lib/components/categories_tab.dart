@@ -72,7 +72,7 @@ class _CategoriesTabState extends State<CategoriesTab> {
               const SizedBox(height: 8.0),
               // Horizontal list of child categories
               SizedBox(
-                height: 250.0, // Adjust height as needed
+                height: 350.0, // Adjust height as needed
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: childCategories.length,

@@ -17,14 +17,15 @@ class CategoryItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Category Image
           ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
             child: Image.asset(
               imagePath,
-              width: 150.0,
-              height: 200.0,
+              width: 220.0,
+              height: 300.0,
               fit: BoxFit.cover,
             ),
           ),
@@ -36,7 +37,6 @@ class CategoryItem extends StatelessWidget {
               color: Colors.white,
               fontSize: 16.0,
             ),
-            // textAlign: TextAlign.left,
           ),
         ],
       ),
