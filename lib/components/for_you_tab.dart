@@ -1,4 +1,3 @@
-// lib/components/for_you_tab.dart
 import 'package:flutter/material.dart';
 import '../models/for_you_item.dart';
 import '../components/event_card.dart';
@@ -9,6 +8,10 @@ class ForYouTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Filter future events
+    List<ForYouItem> futureEvents =
+        forYouItems.where((item) => !item.isPastEvent).toList();
+
     return ListView.builder(
       padding: const EdgeInsets.only(
         top: 130.0, // Adjusted padding to account for AppBar and TabBar
@@ -16,9 +19,9 @@ class ForYouTab extends StatelessWidget {
         right: 16.0,
         bottom: 16.0,
       ),
-      itemCount: forYouItems.length,
+      itemCount: futureEvents.length,
       itemBuilder: (context, index) {
-        return EventCard(item: forYouItems[index]);
+        return EventCard(item: futureEvents[index]);
       },
     );
   }

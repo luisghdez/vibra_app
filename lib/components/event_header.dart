@@ -14,13 +14,13 @@ class EventHeader extends StatelessWidget {
             height: 400,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(
-                    'assets/feed.png'), // Use the image as background
+                image:
+                    AssetImage('assets/feed.png'), // Use your background image
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          // You can add more overlay content here if needed
+          // Optional: Add overlay content here
         ],
       ),
     );

@@ -1,17 +1,54 @@
 // lib/data/mock_data.dart
 import '../models/for_you_item.dart';
 
+import '../models/for_you_item.dart';
+
 final List<ForYouItem> forYouItems = List.generate(
-  20,
-  (index) => ForYouItem(
-    imageUrl: 'assets/feed.png', // Path to your asset image
-    title: 'New Year Celebration ${index + 1}',
-    creator: 'User ${index + 1}',
-    friendsCount: 4 + index, // Example friends count
-    date: 'Thu, Dec 28',
-    time: '2:00 PM',
-    location: 'The Bar ${index + 1}',
-  ),
+  10,
+  (index) {
+    DateTime eventDate = DateTime.now().add(Duration(days: index + 1));
+    return ForYouItem(
+      title: 'Future Event ${index + 1}',
+      creator: 'Creator ${index + 1}',
+      friendsCount: 5 + index,
+      date: '${eventDate.day}/${eventDate.month}/${eventDate.year}',
+      time: '${eventDate.hour}:${eventDate.minute.toString().padLeft(2, '0')}',
+      location: 'Location ${index + 1}',
+      imageUrl: 'assets/feed.png', // Ensure this asset exists
+      eventDate: eventDate,
+      isPastEvent: false, // All are future events
+      participants: [
+        {
+          'name': 'Participant A',
+          'age': 25,
+          'hobbies': 'Reading, Hiking',
+          'profileImage': 'assets/avatar7.png',
+        },
+        {
+          'name': 'Participant B',
+          'age': 30,
+          'hobbies': 'Cooking, Gaming',
+          'profileImage': null,
+        },
+        // Add more participants as needed
+      ],
+      comments: [
+        {
+          'name': 'Commenter A',
+          'profileImage': 'assets/avatar7.png',
+          'text': 'Looking forward to this event!',
+          'likes': 5,
+        },
+        {
+          'name': 'Commenter B',
+          'profileImage': null,
+          'text': 'Can\'t wait!',
+          'likes': 3,
+        },
+        // Add more comments as needed
+      ],
+    );
+  },
 );
 
 final List<String> friendsItems =

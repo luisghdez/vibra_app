@@ -56,10 +56,13 @@ class FeedDetailsScreen extends StatelessWidget {
                               const EventDetails(
                                 title: 'Little Thommy',
                                 dateLocation: 'Fri, Dec 31 · San Francisco, CA',
+                                creatorName: 'John Doe',
                               ),
                               const SizedBox(height: 16),
                               ParticipantsSection(
-                                  participants: item['participants']),
+                                participants: item['participants'],
+                                eventPassed: true,
+                              ),
                               const SizedBox(height: 16),
                               CommentsSection(comments: item['comments']),
                               const SizedBox(height: 16),

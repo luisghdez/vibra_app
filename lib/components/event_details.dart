@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class EventDetails extends StatelessWidget {
   final String title;
   final String dateLocation;
+  final String creatorName;
 
   const EventDetails({
     Key? key,
     required this.title,
     required this.dateLocation,
+    required this.creatorName,
   }) : super(key: key);
 
   @override
@@ -22,6 +24,11 @@ class EventDetails extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            "Hosted by: $creatorName",
+            style: const TextStyle(fontSize: 16, color: Colors.grey),
           ),
           const SizedBox(height: 4),
           Text(

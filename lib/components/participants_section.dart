@@ -3,8 +3,10 @@ import 'participant_card.dart';
 
 class ParticipantsSection extends StatelessWidget {
   final List<Map<String, dynamic>> participants;
+  final eventPassed;
 
-  const ParticipantsSection({Key? key, required this.participants})
+  const ParticipantsSection(
+      {Key? key, required this.participants, required this.eventPassed})
       : super(key: key);
 
   @override
@@ -12,9 +14,9 @@ class ParticipantsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Who Went?',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        Text(
+          eventPassed ? 'Who Went?' : 'Who\'s Going?',
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8),
         Container(
