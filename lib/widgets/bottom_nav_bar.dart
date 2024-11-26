@@ -78,20 +78,23 @@ class BottomNavbar extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-      // Adjust bottom padding to 8.0 to reduce overflow risk
       child: SafeArea(
+        bottom: true, // Keep bottom SafeArea if needed
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(28),
-          // Ensures the blur doesn't affect other parts
+          borderRadius: BorderRadius.circular(34),
           child: BackdropFilter(
             filter: ImageFilter.blur(
                 sigmaX: 10.0, sigmaY: 10.0), // Adjust blur intensity
             child: Container(
-              height: 70,
+              // Optionally remove fixed height or adjust as needed
+              height: 62,
               color: Colors.black.withOpacity(0.55),
               child: BottomNavigationBar(
                 showSelectedLabels: false,
                 showUnselectedLabels: false,
+                selectedFontSize: 0, // Set selected font size to zero
+                unselectedFontSize: 0, // Set unselected font size to zero
+                iconSize: 24, // Adjust icon size as needed
                 backgroundColor:
                     Colors.transparent, // Make BottomNavigationBar transparent
                 elevation: 0, // Remove shadow
@@ -109,8 +112,7 @@ class BottomNavbar extends StatelessWidget {
                 },
                 items: const [
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.home,
-                        size: 30), // Reduced icon size slightly
+                    icon: Icon(Icons.home, size: 30),
                     label: '',
                   ),
                   BottomNavigationBarItem(
@@ -118,8 +120,7 @@ class BottomNavbar extends StatelessWidget {
                     label: '',
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.add,
-                        size: 36), // Keep 'Add' icon slightly larger
+                    icon: Icon(Icons.add, size: 36),
                     label: '',
                   ),
                   BottomNavigationBarItem(
@@ -132,7 +133,7 @@ class BottomNavbar extends StatelessWidget {
                   ),
                 ],
                 selectedItemColor: Colors.white,
-                unselectedItemColor: const Color.fromARGB(255, 124, 124, 124),
+                unselectedItemColor: Color.fromARGB(255, 124, 124, 124),
                 type: BottomNavigationBarType.fixed,
                 enableFeedback: false, // Disable the regular tap animation
               ),

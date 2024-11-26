@@ -67,7 +67,7 @@ class FeedComponent extends StatelessWidget {
     {
       'title': 'Another Post',
       'icon': 'favorite',
-      'username': '@JaneDoe',
+      'username': '@GabyRgl',
       'friendsCount': '10',
       'caption': '#flutter #dart #programming',
       'participants': [
