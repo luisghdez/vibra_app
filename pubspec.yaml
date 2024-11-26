@@ -68,8 +68,19 @@ flutter:
     - assets/feed.png
     - assets/categories/running.png
     - assets/categories/runningpng.png
+    - assets/categories/runningreal.png
     - assets/categories/hiking.png
+    - assets/categories/hikingpng.png
+    - assets/categories/hikingai.png
     - assets/categories/fitness.png
+    - assets/categories/fitnessai.png
+    - assets/categories/1.png
+    - assets/categories/2.png
+    - assets/categories/3.png
+    - assets/categories/4.png
+    - assets/categories/5.png
+    - assets/categories/6.png
+    - assets/categories/7.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
