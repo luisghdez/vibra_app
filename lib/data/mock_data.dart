@@ -58,11 +58,11 @@ final Map<String, List<Map<String, String>>> categories = {
   'Illustrations': [
     {
       'name': 'Running Clubs',
-      'image': 'assets/categories/runningpng.png',
+      'image': 'assets/categories/8.png',
     },
     {
       'name': 'Hiking',
-      'image': 'assets/categories/hikingpng.png',
+      'image': 'assets/categories/9.png',
     },
     {
       'name': 'Fitness',
@@ -71,6 +71,25 @@ final Map<String, List<Map<String, String>>> categories = {
     // {
     //   'name': 'Camping',
     //   'image': 'assets/images/categories/camping.png',
+    // },
+    // Add more child categories with images as needed
+  ],
+  "Weekend Icons": [
+    {
+      'name': 'House Party',
+      'image': 'assets/categories/10.png',
+    },
+    {
+      'name': 'Clubbing',
+      'image': 'assets/categories/11.png',
+    },
+    {
+      'name': 'Dinner',
+      'image': 'assets/categories/12.png',
+    },
+    // {
+    //   'name': 'Theater',
+    //   'image': 'assets/images/categories/theater.png',
     // },
     // Add more child categories with images as needed
   ],
@@ -110,6 +129,7 @@ final Map<String, List<Map<String, String>>> categories = {
       'name': 'Dinner',
       'image': 'assets/categories/7.png',
     },
+
     // {
     // Add more child categories with images as needed
   ],
